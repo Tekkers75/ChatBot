@@ -31,6 +31,7 @@
             this.textBox_Result = new System.Windows.Forms.TextBox();
             this.textBox_Question = new System.Windows.Forms.TextBox();
             this.button_Send = new System.Windows.Forms.Button();
+            this.button_instruction = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox_Result
@@ -61,16 +62,27 @@
             this.button_Send.UseVisualStyleBackColor = true;
             this.button_Send.Click += new System.EventHandler(this.button_Send_Click);
             // 
+            // button_instruction
+            // 
+            this.button_instruction.Location = new System.Drawing.Point(12, 330);
+            this.button_instruction.Name = "button_instruction";
+            this.button_instruction.Size = new System.Drawing.Size(75, 23);
+            this.button_instruction.TabIndex = 3;
+            this.button_instruction.Text = "Инструкция";
+            this.button_instruction.UseVisualStyleBackColor = true;
+            this.button_instruction.Click += new System.EventHandler(this.button_instruction_Click);
+            // 
             // FormBot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 365);
+            this.Controls.Add(this.button_instruction);
             this.Controls.Add(this.button_Send);
             this.Controls.Add(this.textBox_Question);
             this.Controls.Add(this.textBox_Result);
             this.Name = "FormBot";
-            this.Text = "Form1";
+            this.Text = "Чат";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +93,7 @@
         private System.Windows.Forms.TextBox textBox_Result;
         private System.Windows.Forms.TextBox textBox_Question;
         private System.Windows.Forms.Button button_Send;
+        private System.Windows.Forms.Button button_instruction;
     }
 }
 

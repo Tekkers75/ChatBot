@@ -58,7 +58,7 @@
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.buttonLogin);
             this.Name = "FormLogin";
-            this.Text = "Form1";
+            this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
 

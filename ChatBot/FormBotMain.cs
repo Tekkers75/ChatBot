@@ -46,6 +46,8 @@ namespace ChatBot
             }
         }
 
+
+
         /// Не работает
         //private void Result()
         //{
@@ -64,8 +66,10 @@ namespace ChatBot
             {
                 //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
-                //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
                 textBox_Result.Text += bot.BotSay(bot.SetHelloBot());
+
+
+                //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
                 // textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот" + ": " + bot.SetHelloBot() +  "\r" + "\n";
                 //textBox_Question.Clear();
             }
@@ -144,6 +148,11 @@ namespace ChatBot
 
 
 
+        }
+
+        private void button_instruction_Click(object sender, EventArgs e)
+        {
+            textBox_Result.Text += bot.BotSay(bot.BotInstruction());
         }
     }
 }
