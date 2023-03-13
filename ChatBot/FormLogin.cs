@@ -1,4 +1,6 @@
-﻿using System;
+﻿/// @author Саранчин К.А.
+/// Класс формы и обработчики событий
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -1,4 +1,6 @@
-﻿using System;
+﻿/// @author Саранчин К.А.
+/// Класс формы и обработчики событий
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +16,10 @@ namespace ChatBot
     public partial class FormBot : Form
     {
         public Bot bot = new Bot();
+      
+
+
+        /// Добавить еще регулярок
         public static Regex regexHello = new Regex(@"(^(пр(и|e)в)е*т|х(а|e)*й|hi|hello*|ghbd)", RegexOptions.IgnoreCase);
         //public static Regex regexHello = new Regex(@"привет", RegexOptions.IgnoreCase);
         public static Regex regexTime = new Regex(@"время$|час$|time|dhtvz", RegexOptions.IgnoreCase);
@@ -22,6 +28,8 @@ namespace ChatBot
         //public static Regex regexDate = new Regex(@"(?:какое сегодня число\??|число\??)", RegexOptions.IgnoreCase);
         public static Regex regexSum = new Regex(@"Сложи", RegexOptions.IgnoreCase);
         public static Regex regexSub = new Regex(@"Вычти", RegexOptions.IgnoreCase);
+        /// Как работать с URL ссылками?
+
 
         public FormBot()
         {
@@ -38,11 +46,23 @@ namespace ChatBot
             }
         }
 
+        /// Не работает
+        //private void Result()
+        //{
+        //    textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
+        //    textBox_Result.Text += bot.BotSay(bot.BotSum(textBox_Question.Text));
+        //}
 
         private void ProverkaRegex()
         {
+            /// Можно вывести в класс void Name (string n)??
+            /// Как добавить условие на общий if (условие)
+            ///                     else { "не понимаю что вы хотите" }
+            ///         
+            
             if (regexHello.IsMatch(textBox_Question.Text))
             {
+                //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
                 //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
                 textBox_Result.Text += bot.BotSay(bot.SetHelloBot());
@@ -51,6 +71,7 @@ namespace ChatBot
             }
             if (regexTime.IsMatch(textBox_Question.Text))
             {
+                //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
                 //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
                 textBox_Result.Text += bot.BotSay(bot.TimeBot());
@@ -58,6 +79,7 @@ namespace ChatBot
             }
             if (regexDate.IsMatch(textBox_Question.Text))
             {
+                //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
                 //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
                 textBox_Result.Text += bot.BotSay(bot.DateBot());
@@ -65,15 +87,18 @@ namespace ChatBot
             }
             if (regexSum.IsMatch(textBox_Question.Text))
             {
+                //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
                 textBox_Result.Text += bot.BotSay(bot.BotSum(textBox_Question.Text));
             }
             if (regexSub.IsMatch(textBox_Question.Text))
             {
+                //Result();
                 textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
                 textBox_Result.Text += bot.BotSay(bot.BotSub(textBox_Question.Text));
             }
-        }
+            textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + "Я не понял, что вы хотите" + "\r" + "\n"; // Можно добавить рандом
+            }
 
         private void button_Send_Click(object sender, EventArgs e)
         {
@@ -113,8 +138,10 @@ namespace ChatBot
             //    textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
             //    textBox_Result.Text += bot.BotSay(bot.BotSub(textBox_Question.Text));
             //}
+
             ProverkaRegex();
             textBox_Question.Clear();
+
 
 
         }
