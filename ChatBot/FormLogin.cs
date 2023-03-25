@@ -23,6 +23,7 @@ namespace ChatBot
             this.KeyDown += new KeyEventHandler(FormLogin_KeyDown);
         }
 
+        // 
         public static string userName { get; set; }
 
 
@@ -39,11 +40,20 @@ namespace ChatBot
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-
-            userName = textBoxLogin.Text;
-            Form FormBot = new FormBot();
-            Close();
-            FormBot.Show();
+            if (textBoxLogin.Text == "")
+            {
+                MessageBox.Show("Вы не ввели имя");
+            }
+            else
+            {
+                userName = textBoxLogin.Text;
+                // todo: rename
+                Form FormBot = new FormBot();
+               
+                //FormBot.bot.username = textBoxLogin.Text;
+                Close();
+                FormBot.Show();
+            }
         }
     }
 }

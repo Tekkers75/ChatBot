@@ -3,15 +3,105 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
 
 namespace ChatBot
 {
-    public class Bot
-    {
-       
+     public class Bot
+    {   
+        string userName = FormLogin.userName;
+        string url = "https://www.meteonova.ru/frc/30758.htm";
+
+        /// Регулярные выражения
+        public static Regex regexHello = new Regex(@"(^(пр(и|e)в)е*т|х(а|e)*й|hi|hello*|ghbd)", RegexOptions.IgnoreCase);
+        public static Regex regexTime = new Regex(@"время$|час$|time|dhtvz", RegexOptions.IgnoreCase);
+        public static Regex regexDate = new Regex(@"(число$|lfnf$|дата|xbckj)", RegexOptions.IgnoreCase);
+        public static Regex regexSum = new Regex(@"Сложи", RegexOptions.IgnoreCase);
+        public static Regex regexSub = new Regex(@"Вычти", RegexOptions.IgnoreCase);
+        public static Regex regexWheather = new Regex(@"погод(а|у)$|weather|gjujlf$", RegexOptions.IgnoreCase);
+        public static Regex regexInstr = new Regex(@"Инструкция", RegexOptions.IgnoreCase);
+        //todo: fields with regex забыл что тут надо
+
+        public string SiteWheather()
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.Encoding = System.Text.Encoding.UTF8;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+
+                var htmlData = client.DownloadData(url);
+                string htmlCode = Encoding.UTF8.GetString(htmlData);
+
+                var parts1 = Regex.Split(htmlCode, "<div id=\"frc_text_0\" class=\"nodsp\"><b>");
+                var parts2 = Regex.Split(parts1[1], "  ");
+                string numberPosition = (Regex.Replace(parts2[0], @"</b>", ""));
+                return numberPosition;
+                //this.Invoke(new MethodInvoker(delegate {
+                //    label1.Text = Convert.ToString(numberPosition);
+                //}));
+            }
+        }
+
+
+        public void BotCheckReg(string a)
+        {
+            if (regexHello.IsMatch(a))
+            {
+                Answer(a,this);
+            }
+        }
+
+
+        public string Answer(string b, Bot bot)
+        {
+            if (regexHello.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.SetHelloBot());
+            }
+            if (regexDate.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.DateBot());
+            }
+            if (regexTime.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.TimeBot());
+            }
+            if (regexSum.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.BotSum(b));
+            }
+            if (regexSub.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.BotSub(b));
+            }
+            if (regexWheather.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.SiteWheather());
+            }
+            if (regexInstr.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(BotInstruction());
+            }
+
+            else
+            {
+                return "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот"/*FormLogin.userName*/ + ": " + "Я вас не понимаю :(" + "\r" + "\n";
+            }
+        }
+
         public string BotSay(string bot)
         {
             return "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот" + ": " + bot + "\r" + "\n";
@@ -42,26 +132,8 @@ namespace ChatBot
             int a = Convert.ToInt32(words[0]);
             int b = Convert.ToInt32(words[1]);
             return (b - a).ToString();
-
         }
-
-       
-
-        //string botName = "Bot";
-        string userName = FormLogin.userName;
-        //string question;
-
-        //public Bot()
-        //{
-        //   question = "";
-        //}
-
-
-        //public string Question(string quest)
-        //{
-        //    return question;
-        //}
-
+            
         public string SetHelloBot()
         {
             Random rand = new Random();
@@ -83,7 +155,8 @@ namespace ChatBot
 
 
         public string BotInstruction()
-        {
+        {   
+            // todo: to filed
             return "\r" + "\n" + "В данный момент я умею: " + "\r" + "\n"
                 + "Отвечать на приветствие разными вариантами " + "\r" + "\n"
                 + "Показывать дату и время " + "\r" + "\n"
@@ -92,17 +165,17 @@ namespace ChatBot
                 + "Скоро научусь чему то еще 😀";
         }
 
+
+
+
+
+
+
+
         //public string GetHelloBot ()
         //{
         //    return question;
         //}
-
-
-
-
-
-
-
 
 
         //List<Regex> reg = new List<Regex>
@@ -114,9 +187,53 @@ namespace ChatBot
         //    /// добавить еще потом.
         //};
 
-        
+
+        /// Проверка регулярок была
+        // else
+        //if (regexTime.IsMatch(textBox_Question.Text))
+        // {
+        //     //Result();
+        //     textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
+        //     //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
+        //     textBox_Result.Text += bot.BotSay(bot.TimeBot());
+        //     //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот" + ": " + bot.TimeBot() + "\r" + "\n";
+        // } // todo: else
+        // if (regexDate.IsMatch(textBox_Question.Text))
+        // {
+        //     //Result();
+        //     textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
+        //     //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + FormLogin.userName + ": " + textBox_Question.Text + "\r" + "\n";
+        //     textBox_Result.Text += bot.BotSay(bot.DateBot());
+        //     //textBox_Result.Text += "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот" + ": " + bot.DateBot() + "\r" + "\n";
+        // }
+        // if (regexSum.IsMatch(textBox_Question.Text))
+        // {
+        //     //Result();
+        //     textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
+        //     textBox_Result.Text += bot.BotSay(bot.BotSum(textBox_Question.Text));
+        // }
+        // if (regexSub.IsMatch(textBox_Question.Text))
+        // {
+        //     //Result();
+        //     textBox_Result.Text += bot.UserQuest(textBox_Question.Text);
+        //     textBox_Result.Text += bot.BotSay(bot.BotSub(textBox_Question.Text));
+        // }
 
 
-       
+        //string botName = "Bot";
+
+        //string question;
+
+        //public Bot()
+        //{
+        //   question = "";
+        //}
+
+
+        //public string Question(string quest)
+        //{
+        //    return question;
+        //}
+
     }
 }
