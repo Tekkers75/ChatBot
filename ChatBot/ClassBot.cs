@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 namespace ChatBot
 {
@@ -26,7 +27,8 @@ namespace ChatBot
         public static Regex regexSub = new Regex(@"Вычти", RegexOptions.IgnoreCase);
         public static Regex regexWheather = new Regex(@"погод(а|у)$|weather|gjujlf$", RegexOptions.IgnoreCase);
         public static Regex regexInstr = new Regex(@"Инструкция", RegexOptions.IgnoreCase);
-        //todo: fields with regex забыл что тут надо
+        public static Regex regexExit = new Regex(@"Пока|До свидания", RegexOptions.IgnoreCase);
+
 
         public string SiteWheather()
         {
@@ -95,10 +97,15 @@ namespace ChatBot
                 return bot.UserQuest(b) + "\r"  //"\n"
                 + bot.BotSay(BotInstruction());
             }
-
+            if (regexExit.IsMatch(b))
+            {
+                return bot.UserQuest(b) + "\r"  //"\n"
+               + bot.BotSay(BotExit());
+            }
             else
             {
-                return "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот"/*FormLogin.userName*/ + ": " + "Я вас не понимаю :(" + "\r" + "\n";
+                return bot.UserQuest(b) + "\r" + "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот"/*FormLogin.userName*/ + ": "
+                    + "Я вас не понимаю :(" + "\r" + "\n";
             }
         }
 
@@ -156,16 +163,25 @@ namespace ChatBot
 
         public string BotInstruction()
         {   
-            // todo: to filed
             return "\r" + "\n" + "В данный момент я умею: " + "\r" + "\n"
                 + "Отвечать на приветствие разными вариантами " + "\r" + "\n"
                 + "Показывать дату и время " + "\r" + "\n"
                 + "Складывать числа 'a и b' = c" + "\r" + "\n"
                 + "Вычитать числа 'a из b' = c" + "\r" + "\n"
+                + "Говорить погоду " + "\r" + "\n"
+                + "Прощаться и закрывать программу " + "\r" + "\n"
                 + "Скоро научусь чему то еще 😀";
         }
 
-
+        public string BotExit() /// Как выйти из программы после того как бот ответил
+        {
+            string s = "Пока, друг";
+            //добавить рандом
+            //Thread.Sleep(2000);
+            //Application.Exit();
+            //Environment.Exit(0);
+            return s;
+        }
 
 
 
