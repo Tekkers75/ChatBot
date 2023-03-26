@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBot));
             this.textBox_Result = new System.Windows.Forms.TextBox();
             this.textBox_Question = new System.Windows.Forms.TextBox();
             this.button_Send = new System.Windows.Forms.Button();
@@ -64,7 +65,7 @@
             // 
             // button_instruction
             // 
-            this.button_instruction.Location = new System.Drawing.Point(12, 255);
+            this.button_instruction.Location = new System.Drawing.Point(12, 247);
             this.button_instruction.Name = "button_instruction";
             this.button_instruction.Size = new System.Drawing.Size(75, 23);
             this.button_instruction.TabIndex = 3;
@@ -76,11 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ChatBot.Properties.Resources.ChatBack1;
             this.ClientSize = new System.Drawing.Size(384, 283);
             this.Controls.Add(this.button_instruction);
             this.Controls.Add(this.button_Send);
             this.Controls.Add(this.textBox_Question);
             this.Controls.Add(this.textBox_Result);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBot";
             this.Text = "Чат";
             this.ResumeLayout(false);
