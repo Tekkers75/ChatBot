@@ -91,12 +91,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="LoginBack.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ChatBack.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\LoginBack.png" />
   </ItemGroup>
   <ItemGroup>

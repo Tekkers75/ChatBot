@@ -18,7 +18,8 @@ namespace ChatBot
     {   
         string userName = FormLogin.userName;
         string url = "https://www.meteonova.ru/frc/30758.htm";
-
+       
+        
         /// Регулярные выражения
         public static Regex regexHello = new Regex(@"(^(пр(и|e)в)е*т|х(а|e)*й|hi|hello*|ghbd)", RegexOptions.IgnoreCase);
         public static Regex regexTime = new Regex(@"время$|час$|time|dhtvz", RegexOptions.IgnoreCase);
@@ -41,24 +42,28 @@ namespace ChatBot
                 string htmlCode = Encoding.UTF8.GetString(htmlData);
 
                 var parts1 = Regex.Split(htmlCode, "<div id=\"frc_text_0\" class=\"nodsp\"><b>");
-                var parts2 = Regex.Split(parts1[1], "  ");
-                string numberPosition = (Regex.Replace(parts2[0], @"</b>", ""));
+                var parts2 = Regex.Split(parts1[1], "    |Геомагнитное");
+                string numberPosition = (Regex.Replace(parts2[0], @"</b>|<b>", ""));
                 return numberPosition;
-                //this.Invoke(new MethodInvoker(delegate {
-                //    label1.Text = Convert.ToString(numberPosition);
-                //}));
             }
         }
 
 
-        public void BotCheckReg(string a)
+        //public void BotCheckReg(string a)
+        //{
+        //    if (regexHello.IsMatch(a))
+        //    {
+        //        Answer(a,this);
+        //    }
+        //}
+
+
+        /// Как сделать выход после определенного промежутка времени
+        public void Exit()
         {
-            if (regexHello.IsMatch(a))
-            {
-                Answer(a,this);
-            }
+            Thread.Sleep(5000);
+            Application.Exit();
         }
-
 
         public string Answer(string b, Bot bot)
         {
@@ -100,7 +105,7 @@ namespace ChatBot
             if (regexExit.IsMatch(b))
             {
                 return bot.UserQuest(b) + "\r"  //"\n"
-               + bot.BotSay(BotExit());
+                + bot.BotSay(BotExit());
             }
             else
             {
@@ -182,6 +187,8 @@ namespace ChatBot
             //Environment.Exit(0);
             return s;
         }
+
+
 
 
 

@@ -21,6 +21,7 @@ namespace ChatBot
             InitializeComponent();
             KeyPreview = true;
             this.KeyDown += new KeyEventHandler(FormLogin_KeyDown);
+            
         }
 
         // 
@@ -50,6 +51,7 @@ namespace ChatBot
                 // todo: rename
                 Form FormBot = new FormBot();
                
+                
                 //FormBot.bot.username = textBoxLogin.Text;
                 Close();
                 FormBot.Show();
