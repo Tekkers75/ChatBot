@@ -1,14 +1,199 @@
-История чата от 28 марта 2023 г.
+[00:09] Костя: Привет
+[00:09] Бот: Привет Костя
 
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
-[12:18] Костя: 
-[12:18] Бот: Я вас не понимаю :(
+[00:09] Костя: Привет
+[00:09] Бот: Привет Костя
+[00:09] Костя: Погода
+
+[00:09] Бот: Я вас не понимаю :(
+
+[00:09] Костя: Привет
+[00:09] Бот: Привет Костя
+[00:09] Костя: Погода
+
+[00:09] Бот: Я вас не понимаю :(
+[00:09] Костя: Погода
+[00:09] Бот: Этой ночью ожидается ясная погода, температура -1..-3°.  Атмосферное давление в пределах нормы. Завтра днем переменная облачность, +6..+8°, ветер юго-восточный,  умеренный.  Давление немного ниже нормы. Геомагнитное поле спокойное.<br>10 апреля,  в течение суток  на фоне пониженного давления ожидается переменная облачность, сильный снег, сильный туман, на дорогах гололедица; ночью и днем -1..-3°, ветер северо-западный,  сильный, порывы до 14 м/с. <br></div>
+<div id="frc_text_1" class="nodsp">11 апреля,  в течение суток  ожидается малооблачная погода; ночью -5..-7°, днем -1..+1°, ветер северо-западный,  сильный, порывы до 13 м/с. <br>12 апреля, ожидается малооблачная погода; ночью -10..12°, днем +4..+6°, ветер  слабый. <br></div>
+<div id="frc_text_2" class="nodsp">13 апреля,  в течение суток  ожидается переменная облачность; ночью и днем -1..+1°, ветер северный,  умеренный.<br>14 апреля, ожидается переменная облачность; ночью и днем -1..+1°, ветер юго-западный,  умеренный. <br></div>
+<div id="frc_text_3" class="nodsp">c 16 по 18 апреля ожидается переменная облачность, с температурами ночью от -9 до -3, днем от +1 до +17 градусов. Давление неустойчивое,  в среднем в пределах нормы. Ветер преимущественно северо-западный,  умеренный.</div>
+<div id="frc_text_4" class="nodsp">c 18 по 20 апреля ожидается переменная облачность, небольшой снег, сильный туман, с температурами ночью от -7 до +2, днем от 0 до +17 градусов. Давление неустойчивое,  в среднем в пределах нормы. Ветер преимущественно северо-западный,  умеренный.</div>
+<div id="frc_text_5" class="nodsp">c 20 по 22 апреля ожидается малооблачная погода, с температурами ночью от -8 до -4, днем от 0 до +7 градусов. Давление  в среднем в пределах нормы. Ветер преимущественно северо-западный,  умеренный.</div>
+
+<div id="printTable" class="nodsp">
+<table border=0 cellpadding=0 cellspacing=0><tr><td class=hdr>Дата</td><td class=hdr>Обл</td><td align=center class=hdr>Давл</td><td class=hdr align=center>Темп</td><td class=hdr align=center>Влж</td><td class=hdr align=center>Ветер</td><td class=hdr align=center>Комф</td></tr>
+<tr>
+<td nowrap class="tod0">9 вс, Ночь</td>
+<td class="tod0"><img src="//www.meteonova.ru/images/prts/n1_0.png" width="25" height="40" alt=""></td>
+<td class="tod0">694</td>
+<td class="tod0 temper">-2</td>
+<td class="tod0">53</td>
+<td class="tod0">З<br>2-5</td>
+<td class="tod0">-2</td>
+</tr>
+<tr>
+<td nowrap class="tod1">9 вс, Утро</td>
+<td class="tod1"><img src="//www.meteonova.ru/images/prts/d1_3.png" width="25" height="40" alt=""></td>
+<td class="tod1">695</td>
+<td class="tod1 temper">-2</td>
+<td class="tod1">42</td>
+<td class="tod1">В<br>1-3</td>
+<td class="tod1">-2</td>
+</tr>
+<tr>
+<td nowrap class="tod2">9 вс, День</td>
+<td class="tod2"><img src="//www.meteonova.ru/images/prts/d1_3.png" width="25" height="40" alt=""></td>
+<td class="tod2">692</td>
+<td class="tod2 temper">+7</td>
+<td class="tod2">21</td>
+<td class="tod2">В<br>5-9</td>
+<td class="tod2">+6</td>
+</tr>
+<tr>
+<td nowrap class="tod3">9 вс, Вечер</td>
+<td class="tod3"><img src="//www.meteonova.ru/images/prts/n7_3.png" width="25" height="40" alt=""></td>
+<td class="tod3">688</td>
+<td class="tod3 temper">+3</td>
+<td class="tod3">48</td>
+<td class="tod3">С-В<br>3-6</td>
+<td class="tod3">+3</td>
+</tr>
+<tr>
+<td nowrap class="tod0">10 пн, Ночь</td>
+<td class="tod0"><img src="//www.meteonova.ru/images/prts/n7_3.png" width="25" height="40" alt=""></td>
+<td class="tod0">686</td>
+<td class="tod0 temper">-2</td>
+<td class="tod0">82</td>
+<td class="tod0">С<br>2-5</td>
+<td class="tod0">-3</td>
+</tr>
+<tr>
+<td nowrap class="tod1">10 пн, Утро</td>
+<td class="tod1"><img src="//www.meteonova.ru/images/prts/d7_3.png" width="25" height="40" alt=""></td>
+<td class="tod1">685</td>
+<td class="tod1 temper">-3</td>
+<td class="tod1">90</td>
+<td class="tod1">З<br>3-6</td>
+<td class="tod1">-4</td>
+</tr>
+<tr>
+<td nowrap class="tod2">10 пн, День</td>
+<td class="tod2"><img src="//www.meteonova.ru/images/prts/d7_3.png" width="25" height="40" alt=""></td>
+<td class="tod2">687</td>
+<td class="tod2 temper">-1</td>
+<td class="tod2">80</td>
+<td class="tod2">З<br>7-12</td>
+<td class="tod2">-8</td>
+</tr>
+<tr>
+<td nowrap class="tod3">10 пн, Вечер</td>
+<td class="tod3"><img src="//www.meteonova.ru/images/prts/n6_3.png" width="25" height="40" alt=""></td>
+<td class="tod3">691</td>
+<td class="tod3 temper">-8</td>
+<td class="tod3">66</td>
+<td class="tod3">З<br>7-12</td>
+<td class="tod3">-18</td>
+</tr>
+<tr>
+<td nowrap class="tod0">11 вт, Ночь</td>
+<td class="tod0"><img src="//www.meteonova.ru/images/prts/n1_3.png" width="25" height="40" alt=""></td>
+<td class="tod0">691</td>
+<td class="tod0 temper">-6</td>
+<td class="tod0">55</td>
+<td class="tod0">С-З<br>7-12</td>
+<td class="tod0">-16</td>
+</tr>
+<tr>
+<td nowrap class="tod1">11 вт, Утро</td>
+<td class="tod1"><img src="//www.meteonova.ru/images/prts/d1_2.png" width="25" height="40" alt=""></td>
+<td class="tod1">694</td>
+<td class="tod1 temper">-9</td>
+<td class="tod1">52</td>
+<td class="tod1">С-З<br>7-12</td>
+<td class="tod1">-19</td>
+</tr>
+<tr>
+<td nowrap class="tod2">11 вт, День</td>
+<td class="tod2"><img src="//www.meteonova.ru/images/prts/d1_0.png" width="25" height="40" alt=""></td>
+<td class="tod2">694</td>
+<td class="tod2 temper">0</td>
+<td class="tod2">37</td>
+<td class="tod2">С-З<br>7-12</td>
+<td class="tod2">-7</td>
+</tr>
+<tr>
+<td nowrap class="tod3">11 вт, Вечер</td>
+<td class="tod3"><img src="//www.meteonova.ru/images/prts/n1_0.png" width="25" height="40" alt=""></td>
+<td class="tod3">696</td>
+<td class="tod3 temper">-4</td>
+<td class="tod3">71</td>
+<td class="tod3">З<br>2-5</td>
+<td class="tod3">-5</td>
+</tr>
+<tr>
+<td nowrap class="tod0">12 ср, Ночь</td>
+<td class="tod0"><img src="//www.meteonova.ru/images/prts/n1_0.png" width="25" height="40" alt=""></td>
+<td class="tod0">697</td>
+<td class="tod0 temper">-11</td>
+<td class="tod0">90</td>
+<td class="tod0">Штиль</td>
+<td class="tod0">-11</td>
+</tr>
+<tr>
+<td nowrap class="tod1">12 ср, Утро</td>
+<td class="tod1"><img src="//www.meteonova.ru/images/prts/d1_1.png" width="25" height="40" alt=""></td>
+<td class="tod1">698</td>
+<td class="tod1 temper">-6</td>
+<td class="tod1">62</td>
+<td class="tod1">Штиль</td>
+<td class="tod1">-6</td>
+</tr>
+<tr>
+<td nowrap class="tod2">12 ср, День</td>
+<td class="tod2"><img src="//www.meteonova.ru/images/prts/d1_0.png" width="25" height="40" alt=""></td>
+<td class="tod2">697</td>
+<td class="tod2 temper">+5</td>
+<td class="tod2">37</td>
+<td class="tod2">З<br>2-5</td>
+<td class="tod2">+5</td>
+</tr>
+<tr>
+<td nowrap class="tod3">12 ср, Вечер</td>
+<td class="tod3"><img src="//www.meteonova.ru/images/prts/n1_2.png" width="25" height="40" alt=""></td>
+<td class="tod3">698</td>
+<td class="tod3 temper">-1</td>
+<td class="tod3">82</td>
+<td class="tod3">Штиль</td>
+<td class="tod3">-1</td>
+</tr>
+<tr>
+<td nowrap class="tod0">13 чт, Ночь</td>
+<td class="tod0"><img src="//www.meteonova.ru/images/prts/n1_3.png" width="25" height="40" alt=""></td>
+<td class="tod0">700</td>
+<td class="tod0 temper">-5</td>
+<td class="tod0">91</td>
+<td class="tod0">С-З<br>1-3</td>
+<td class="tod0">-5</td>
+</tr>
+<tr>
+<td nowrap class="tod1">13 чт, Утро</td>
+<td class="tod1"><img src="//www.meteonova.ru/images/prts/d1_3.png" width="25" height="40" alt=""></td>
+<td class="tod1">703</td>
+<td class="tod1 temper">-2</td>
+<td class="tod1">55</td>
+<td class="tod1">З<br>2-5</td>
+<td class="tod1">-2</td>
+</tr>
+</table>
+</div>
+
+<script>
+function PrintObject(){
+
+this.contH="";
+this.contB="";
+
+this.getPrintHeader=function(){ 
+return "<title>МЕТЕОНОВА - погода в Чите - версия для печати</title><META http-equiv=Content-Type content='text/html charset=utf-8'>"+
+
+

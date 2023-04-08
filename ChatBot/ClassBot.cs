@@ -18,6 +18,7 @@ namespace ChatBot
     {   
         string userName = FormLogin.userName;
         string url = "https://www.meteonova.ru/frc/30758.htm";
+        List<string> History = new List<string>();
        
         
         /// Регулярные выражения
@@ -50,6 +51,11 @@ namespace ChatBot
             }
         }
 
+
+        public void AddList(string a)
+        {
+            History.Add(a);
+        }
 
         //public void BotCheckReg(string a)
         //{
@@ -214,9 +220,10 @@ namespace ChatBot
                 {
                     string date = DateTime.Now.ToString("D");
 
-                    string text = a;
-                    string all = $"История чата от " + date + "\r\n" + text;
-                    File.WriteAllText(saveFileDialog.FileName, all); // сохранение текста в файл по выбранному пути
+                    //string text = a;
+                    History.Add ($"История чата от " + date + "\r\n" + a);
+                    //File.WriteAllText(saveFileDialog.FileName, all); // сохранение текста в файл по выбранному пути
+                    File.WriteAllLines(saveFileDialog.FileName,History);
                 }
             }
         }

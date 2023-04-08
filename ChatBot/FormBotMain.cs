@@ -55,6 +55,7 @@ namespace ChatBot
 
         private void button_Send_Click(object sender, EventArgs e)
         {
+            //bot.AddList(textBox_Result.Text += bot.Answer(textBox_Question.Text, bot));
             textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
             textBox_Result.SelectionStart = textBox_Result.Text.Length;
             textBox_Result.ScrollToCaret();

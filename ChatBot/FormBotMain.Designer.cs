@@ -55,10 +55,9 @@
             // 
             // textBox_Question
             // 
-            this.textBox_Question.Location = new System.Drawing.Point(12, 232);
-            this.textBox_Question.Multiline = true;
+            this.textBox_Question.Location = new System.Drawing.Point(12, 245);
             this.textBox_Question.Name = "textBox_Question";
-            this.textBox_Question.Size = new System.Drawing.Size(249, 44);
+            this.textBox_Question.Size = new System.Drawing.Size(249, 20);
             this.textBox_Question.TabIndex = 1;
             // 
             // button_Send
