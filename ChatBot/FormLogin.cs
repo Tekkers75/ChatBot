@@ -21,11 +21,11 @@ namespace ChatBot
             InitializeComponent();
             KeyPreview = true;
             this.KeyDown += new KeyEventHandler(FormLogin_KeyDown);
+            //label1.BackColor = Color.Transparent;
             
         }
 
-        // 
-        public static string userName { get; set; }
+       public static string userName { get; set; }
 
 
         private void FormLogin_KeyDown(object sender, KeyEventArgs e)
@@ -49,12 +49,12 @@ namespace ChatBot
             {
                 userName = textBoxLogin.Text;
                 // todo: rename
-                Form FormBot = new FormBot();
+                Form FormBotClass = new FormBot();
                
                 
                 //FormBot.bot.username = textBoxLogin.Text;
                 Close();
-                FormBot.Show();
+                FormBotClass.Show();
             }
         }
     }

@@ -33,17 +33,19 @@ namespace ChatBot
 
         public string SiteWheather()
         {
+            ///  создание ссылки на объект для загрузки данных с ресурсом, заданным URL.
             using (WebClient client = new WebClient())
             {
                 client.Encoding = System.Text.Encoding.UTF8;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                // ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
+                /// Загрузка данных с сервера 
                 var htmlData = client.DownloadData(url);
                 string htmlCode = Encoding.UTF8.GetString(htmlData);
 
                 var parts1 = Regex.Split(htmlCode, "<div id=\"frc_text_0\" class=\"nodsp\"><b>");
-                var parts2 = Regex.Split(parts1[1], "    |Геомагнитное");
-                string numberPosition = (Regex.Replace(parts2[0], @"</b>|<b>", ""));
+                var parts2 = Regex.Split(parts1[1], "   |Возможны");
+                string numberPosition = Regex.Replace(parts2[0], @"</b>|<b>", "");
                 return numberPosition;
             }
         }
@@ -188,9 +190,36 @@ namespace ChatBot
             return s;
         }
 
+        public void LoadHistory(string a)
+        {
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"; // Фильтр для типа файлов
+                    if (openFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+                    {
+                        string text = File.ReadAllText(openFileDialog.FileName); // чтение текста из выбранного файла
+                        a = text; // загрузка текста в TextEdit
+                    }
+                }
+            }
+        }
 
+        public void SaveHistory(string a)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt"; // Фильтр для типа файлов
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+                {
+                    string date = DateTime.Now.ToString("D");
 
-
+                    string text = a;
+                    string all = $"История чата от " + date + "\r\n" + text;
+                    File.WriteAllText(saveFileDialog.FileName, all); // сохранение текста в файл по выбранному пути
+                }
+            }
+        }
 
 
 

@@ -56,6 +56,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label1.Location = new System.Drawing.Point(71, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);

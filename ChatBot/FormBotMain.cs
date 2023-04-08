@@ -16,22 +16,34 @@ using System.Threading;
 using System.Timers;
 using System.Globalization;
 
+
 namespace ChatBot
 {
+
     public partial class FormBot : Form
     {
         public Bot bot = new Bot();
-        private static System.Timers.Timer timer;
 
-        
+
+        private static System.Timers.Timer aTimer;
+              
+
+
         public FormBot()
         {
             InitializeComponent();
             KeyPreview = true;
             this.KeyDown += new KeyEventHandler(FormBot_KeyEnter);
-            timer = new System.Timers.Timer(2000);
-            
+            aTimer = new System.Timers.Timer(2000);
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
         }
+
+        private void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Application.Exit();
+        }
+
 
         private void FormBot_KeyEnter(object sender, KeyEventArgs e)
         {
@@ -43,21 +55,16 @@ namespace ChatBot
 
         private void button_Send_Click(object sender, EventArgs e)
         {
-            //if (textBox_Question.Text == bot.BotExit())
-            //{
-                //bot.BotCheckReg(textBox_Question.Text);
             textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
             textBox_Result.SelectionStart = textBox_Result.Text.Length;
             textBox_Result.ScrollToCaret();
-            textBox_Question.Clear();
-            //}
-            //else
-            //{
-            //    timer.Start();
-            //    textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
-            //    if (
+            
+            if (textBox_Question.Text == "Пока")
+            {
+                aTimer.Start();
+            }
 
-            //}
+            textBox_Question.Clear();
         }
 
         private void button_instruction_Click(object sender, EventArgs e)
@@ -65,35 +72,14 @@ namespace ChatBot
             textBox_Result.Text += bot.BotSay(bot.BotInstruction());
         }
 
-
-
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt"; // Фильтр для типа файлов
-                if (saveFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
-                {
-                    string text = textBox_Result.Text;
-                    File.WriteAllText(saveFileDialog.FileName, text); // сохранение текста в файл по выбранному пути
-                }
-            }
-
+            bot.SaveHistory(textBox_Result.Text);
         }
 
         private void загрузитьИсториюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"; // Фильтр для типа файлов
-                    if (openFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
-                    {
-                        string text = File.ReadAllText(openFileDialog.FileName); // чтение текста из выбранного файла
-                        textBox_Result.Text = text; // загрузка текста в TextEdit
-                    }
-                }
-            }
+            bot.LoadHistory(textBox_Result.Text);
         }
 
         private void очиститьЧатToolStripMenuItem_Click(object sender, EventArgs e)
@@ -229,6 +215,36 @@ namespace ChatBot
     //    //backgroundWorkerSite.RunWorkerAsync();
 
     //}
+    /// не работает
+    //int count = 0;
+    //if ("Пока, друг" == bot.Answer(textBox_Question.Text, bot))
+    //{
+    //    for (int i = 0; i < 3; i++)
+    //    {
+    //        count++;
+    //        Thread.Sleep(1000);
+    //    }
+    //    if (count == 2)
+    //    {
+    //        bot.Exit();
+    //    }
+    //}
 
+
+
+    //
+    //}
+    //else
+    //{
+    //    timer.Start();
+    //    textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
+    //    if (
+
+    //}
+
+
+    //if (textBox_Question.Text == bot.BotExit())
+    //{
+    //bot.BotCheckReg(textBox_Question.Text);
 }
 
