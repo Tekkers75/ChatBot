@@ -52,12 +52,13 @@ namespace ChatBot
             }
         }
 
-
+        /// Метод добавления строк в список
         public void AddList(string a)
         {
             History.Add(a);
         }
 
+        /// Метод вывода строк из списка
         public string Vivod(string a)
         {
             foreach(var item in History)
@@ -66,6 +67,7 @@ namespace ChatBot
             }
             return a;
         }
+
         //public void BotCheckReg(string a)
         //{
         //    if (regexHello.IsMatch(a))
