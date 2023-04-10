@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью указанного ниже 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // общие сведения об этой сборке.
-[assembly: AssemblyTitle("ChatBotTestsBot")]
+[assembly: AssemblyTitle("ChatBotTests1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ChatBotTestsBot")]
+[assembly: AssemblyProduct("ChatBotTests1")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("6159e0c1-2605-4830-b5de-d3d986567a9c")]
+[assembly: Guid("6e6ec46b-ab43-421f-a47d-04f9d37fc497")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

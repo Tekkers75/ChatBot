@@ -19,8 +19,9 @@ namespace ChatBot
         string userName = FormLogin.userName;
         string url = "https://www.meteonova.ru/frc/30758.htm";
         List<string> History = new List<string>();
-       
-        
+        List<string> Answer1 = new List<string>();
+
+
         /// Регулярные выражения
         public static Regex regexHello = new Regex(@"(^(пр(и|e)в)е*т|х(а|e)*й|hi|hello*|ghbd)", RegexOptions.IgnoreCase);
         public static Regex regexTime = new Regex(@"время$|час$|time|dhtvz", RegexOptions.IgnoreCase);
@@ -45,7 +46,7 @@ namespace ChatBot
                 string htmlCode = Encoding.UTF8.GetString(htmlData);
 
                 var parts1 = Regex.Split(htmlCode, "<div id=\"frc_text_0\" class=\"nodsp\"><b>");
-                var parts2 = Regex.Split(parts1[1], "   |Возможны");
+                var parts2 = Regex.Split(parts1[1], "   |<br></div>");
                 string numberPosition = Regex.Replace(parts2[0], @"</b>|<b>", "");
                 return numberPosition;
             }
@@ -57,6 +58,14 @@ namespace ChatBot
             History.Add(a);
         }
 
+        public string Vivod(string a)
+        {
+            foreach(var item in History)
+            {
+                a = item; 
+            }
+            return a;
+        }
         //public void BotCheckReg(string a)
         //{
         //    if (regexHello.IsMatch(a))
@@ -77,8 +86,8 @@ namespace ChatBot
         {
             if (regexHello.IsMatch(b))
             {
-                return bot.UserQuest(b) + "\r"  //"\n"
-                + bot.BotSay(bot.SetHelloBot());
+                return (bot.UserQuest(b) + "\r"  //"\n"
+                + bot.BotSay(bot.SetHelloBot()));
             }
             if (regexDate.IsMatch(b))
             {
@@ -120,6 +129,7 @@ namespace ChatBot
                 return bot.UserQuest(b) + "\r" + "[" + DateTime.Now.ToString("HH:mm") + "] " + "Бот"/*FormLogin.userName*/ + ": "
                     + "Я вас не понимаю :(" + "\r" + "\n";
             }
+            
         }
 
         public string BotSay(string bot)

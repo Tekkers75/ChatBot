@@ -22,9 +22,11 @@ namespace ChatBot
 
     public partial class FormBot : Form
     {
+        /// Ссылка на объект класса бот
         public Bot bot = new Bot();
 
-
+        /// Класс таймер, который запускает событие через регулярные интервалы (4 разных вида есть)
+        /// Создаем ссылку на объект класса таймер
         private static System.Timers.Timer aTimer;
               
 
@@ -55,8 +57,9 @@ namespace ChatBot
 
         private void button_Send_Click(object sender, EventArgs e)
         {
-            //bot.AddList(textBox_Result.Text += bot.Answer(textBox_Question.Text, bot));
-            textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
+            bot.AddList(bot.Answer(textBox_Question.Text, bot));
+            textBox_Result.Text += bot.Vivod(textBox_Result.Text);
+            //textBox_Result.Text += bot.Answer(textBox_Question.Text, bot);
             textBox_Result.SelectionStart = textBox_Result.Text.Length;
             textBox_Result.ScrollToCaret();
             
