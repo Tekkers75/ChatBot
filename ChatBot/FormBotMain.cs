@@ -78,12 +78,36 @@ namespace ChatBot
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bot.SaveHistory(textBox_Result.Text);
+            //bot.SaveHistory(textBox_Result.Text);
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt"; // Фильтр для типа файлов
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+                {
+                    string date = DateTime.Now.ToString("D");
+                    //string text = a;
+                    bot.AddList($"История чата от " + date + "\r\n" + textBox_Result.Text);
+                    File.WriteAllText(saveFileDialog.FileName, bot.Vivod(textBox_Result.Text)); // сохранение текста в файл по выбранному пути
+                    //File.WriteAllLines(saveFileDialog.FileName, bot.Vivod();
+                }
+            }
         }
 
         private void загрузитьИсториюToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bot.LoadHistory(textBox_Result.Text);
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"; // Фильтр для типа файлов
+                    if (openFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+                    {
+                        string text = File.ReadAllText(openFileDialog.FileName); // чтение текста из выбранного файла
+                        //bot.AddList(text); // загрузка текста в TextEdit
+                        textBox_Result.Text = bot.Vivod(text);
+                        //a = text;
+                    }
+                }
+            }
         }
 
         private void очиститьЧатToolStripMenuItem_Click(object sender, EventArgs e)

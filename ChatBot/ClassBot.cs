@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChatBot
 {
@@ -18,8 +19,7 @@ namespace ChatBot
     {   
         string userName = FormLogin.userName;
         string url = "https://www.meteonova.ru/frc/30758.htm";
-        List<string> History = new List<string>();
-        List<string> Answer1 = new List<string>();
+        public List<string> History = new List<string>();
 
 
         /// Регулярные выражения
@@ -78,11 +78,11 @@ namespace ChatBot
 
 
         /// Как сделать выход после определенного промежутка времени
-        public void Exit()
-        {
-            Thread.Sleep(5000);
-            Application.Exit();
-        }
+        //public void Exit()
+        //{
+        //    Thread.Sleep(5000);
+        //    Application.Exit();
+        //}
 
         public string Answer(string b, Bot bot)
         {
@@ -208,37 +208,39 @@ namespace ChatBot
             return s;
         }
 
-        public void LoadHistory(string a)
-        {
-            {
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"; // Фильтр для типа файлов
-                    if (openFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
-                    {
-                        string text = File.ReadAllText(openFileDialog.FileName); // чтение текста из выбранного файла
-                        a = text; // загрузка текста в TextEdit
-                    }
-                }
-            }
-        }
+        //public void LoadHistory(string a)
+        //{
+        //    {
+        //        using (OpenFileDialog openFileDialog = new OpenFileDialog())
+        //        {
+        //            openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"; // Фильтр для типа файлов
+        //            if (openFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+        //            {
+        //                string text = File.ReadAllText(openFileDialog.FileName); // чтение текста из выбранного файла
+        //                AddList(text); // загрузка текста в TextEdit
+        //                Vivod(text);
+        //                a = text;
+        //            }
+        //        }
+        //    }
+        //}
 
-        public void SaveHistory(string a)
-        {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-            {
-                saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt"; // Фильтр для типа файлов
-                if (saveFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
-                {
-                    string date = DateTime.Now.ToString("D");
+        //public void SaveHistory(string a)
+        //{
+        //    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+        //    {
+        //        saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt"; // Фильтр для типа файлов
+        //        if (saveFileDialog.ShowDialog() == DialogResult.OK) // Если пользователь выбрал файл 
+        //        {
+        //            string date = DateTime.Now.ToString("D");
 
-                    //string text = a;
-                    History.Add ($"История чата от " + date + "\r\n" + a);
-                    //File.WriteAllText(saveFileDialog.FileName, all); // сохранение текста в файл по выбранному пути
-                    File.WriteAllLines(saveFileDialog.FileName,History);
-                }
-            }
-        }
+        //            //string text = a;
+        //            History.Add ($"История чата от " + date + "\r\n" + a);
+        //            //File.WriteAllText(saveFileDialog.FileName, all); // сохранение текста в файл по выбранному пути
+        //            File.WriteAllLines(saveFileDialog.FileName,History);
+        //        }
+        //    }
+        //}
 
 
 
